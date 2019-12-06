@@ -1,0 +1,27 @@
+input.buttonA.onEvent(ButtonEvent.Click, function () {
+    light.setAll(0xff0000)
+    for (let i = 0; i < 100; i++) {
+        bright += 1
+        light.setBrightness(bright)
+        pause(100)
+    }
+    music.powerUp.play()
+    light.setAll(0x00ff00)
+})
+input.buttonB.onEvent(ButtonEvent.Click, function () {
+    bright = 100
+    light.setAll(0x00ff00)
+    for (let i = 0; i < 100; i++) {
+        bright += -1
+        light.setBrightness(bright)
+        pause(50)
+    }
+    music.powerDown.play()
+})
+let bright = 0
+light.showRing(
+`orange blue yellow green red red green yellow blue orange`
+)
+pause(1000)
+light.clear()
+light.setBrightness(0)
